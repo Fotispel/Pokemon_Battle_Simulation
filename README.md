@@ -1,2 +1,2 @@
 # pokemon_simulation
-2023
+This is repo for CS - 352 project
