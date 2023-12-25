@@ -1,4 +1,4 @@
 build:
-	g++ -std=c++11 game.cpp -o pokebattle
+	g++ -std=c++11 -Wall -Werror game.cpp -o pokebattle
 clear:
 	rm *.exe
