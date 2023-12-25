@@ -1,4 +1,4 @@
-#include "poke_important.h"
+#include "poke_important.h" // @Fotispel μετακίνησα όλες τις βιβλιοθήκες σέ ένα ενιαίο αρχείο. Εκεί θα προσθέτουμε πράγματα που θέλουν και οι 2
 #define CREATE
 #define ABILITY class Create_Ability
 #define NAME Create_Ability ca{ false ? "problem in create_ability"
