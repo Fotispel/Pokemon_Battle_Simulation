@@ -1,23 +1,7 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <typeinfo>
-#include <vector>
-#include <map>
-
-#define BEGIN_GAME \
-    int main()     \
-    {
-#define END_GAME \
-    ;            \
-    return 0;    \
-    }
-
+#include "poke_important.h"
 #define CREATE
 #define ABILITY class Create_Ability
 #define NAME Create_Ability ca{ false ? "problem in create_ability"
-
-using namespace std;
 
 string name;
 int rounds, damage_defender, damage_attacker, heal_defender, heal_attacker;
