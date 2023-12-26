@@ -1,5 +1,7 @@
 #include "poke_important.h"
 
+#define POKEMON Pokemon pok =
+
 class Pokemon{
 	private:
 		string name;

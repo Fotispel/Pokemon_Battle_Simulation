@@ -1,7 +1,6 @@
 #include "poke_important.h" // @Fotispel μετακίνησα όλες τις βιβλιοθήκες σέ ένα ενιαίο αρχείο. Εκεί θα προσθέτουμε πράγματα που θέλουν και οι 2
-#define CREATE
 #define ABILITY class Create_Ability
-#define NAME Create_Ability ca{ false ? "problem in create_ability"
+//@Fotispel σβήσε το. Πάει στα κοινόχρηστα #define NAME Create_Ability ca{ false ? "problem in create_ability"
 
 string name;
 int rounds, damage_defender, damage_attacker, heal_defender, heal_attacker;

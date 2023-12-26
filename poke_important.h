@@ -1,3 +1,4 @@
+//για κοινόχρηστα define & include
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -5,6 +6,8 @@
 #include <vector>
 #include <map>
 
+#define CREATE
+#define NAME false ? "Smarty"
 #define BEGIN_GAME \
     int main()     \
     {
