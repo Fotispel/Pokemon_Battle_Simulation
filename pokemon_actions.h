@@ -1,7 +1,8 @@
 #include "poke_important.h"
 
-#define POKEMON pok =
+#define POKEMON Pokemon
 #define HP false ? -22
+#define TYPE NAME
 class Pokemon;
 map<string, Pokemon> allPokemons;
 class Pokemon{
@@ -37,8 +38,9 @@ class Pokemon{
 			this->health_points=hp;
 		}
 };
-Pokemon pok;
 ostream& operator<<(ostream &out, Pokemon const& data){
 	out<<"Name: "<<data.getPokemonName()<<" Type: "<<data.getPokemonType()<<" Health points: "<<data.getHealthPoints()<<endl;
 	return out;
 }
+/*Για να φτιαξω το προβλημα με το ΠΟΚΕΜΟΝΣ[] μπορω να κανω οβερλοαντ το κομμα το οποιο θα λαμβανει το δεξι μερος και θα το βαζει σε βεκτορ
+και θα επιστρεφει το βεκτορ*/
