@@ -1,87 +1,55 @@
-#include "poke_important.h" // @Fotispel μετακίνησα όλες τις βιβλιοθήκες σέ ένα ενιαίο αρχείο. Εκεί θα προσθέτουμε πράγματα που θέλουν και οι 2
-#define ABILITY class Create_Ability
-//@Fotispel σβήσε το. Πάει στα κοινόχρηστα #define NAME Create_Ability ca{ false ? "problem in create_ability"
+#include "poke_important.h"
 
-string name;
-int rounds, damage_defender, damage_attacker, heal_defender, heal_attacker;
+#define ABILITY Ability
+#define IF if
+#define ELSE else
+#define DO ,
+#define START
+#define END
+#define ROUNDS
+#define HEAL +
+#define DAMAGE -
+#define ATTACKER
+#define DEFENDER
+#define ACTION false ? -1
+#define FOR
 
-void set_values(string name, int rounds, int damage_defender, int damage_attacker, int heal_defender, int heal_attacker)
+class Ability;
+map<string, Ability> allAbilities;
+
+class Ability
 {
-    name = name;
-    rounds = rounds;
-    damage_defender = damage_defender;
-    damage_attacker = damage_attacker;
-    heal_defender = heal_defender;
-    heal_attacker = heal_attacker;
-}
-
-class Create_Ability
-{
-public:
+private:
     string name;
-    int rounds;
-    int damage_defender;
-    int damage_attacker;
-    int heal_defender;
-    int heal_attacker;
-    Create_Ability(string name, int rounds, int damage_defender, int damage_attacker,
-                   int heal_defender, int heal_attacker)
-    {
-        this->name = name;
-        this->rounds = rounds;
-        this->damage_defender = damage_defender;
-        this->damage_attacker = damage_attacker;
-        this->heal_defender = heal_defender;
-        this->heal_attacker = heal_attacker;
-    }
+    int action;
 
-    string get_name()
+public:
+    Ability() {}
+    Ability(Ability *copy)
+    { // deep copy constructor
+        name = copy->name;
+        action = copy->action;
+    }
+	Ability(string name, int action)
+	{
+		this->name = name;
+		this->action = action;
+		Ability dummy(this);
+		allAbilities.insert(pair<string, Ability>(getAbilitynName(), dummy));
+	}
+
+
+    string getAbilitynName() const
     {
         return this->name;
     }
-    int get_rounds()
+    int getAbilityAction() const
     {
-        return this->rounds;
-    }
-    int get_damage_defender()
-    {
-        return this->damage_defender;
-    }
-    int get_damage_attacker()
-    {
-        return this->damage_attacker;
-    }
-    int get_heal_defender()
-    {
-        return this->heal_defender;
-    }
-    int get_heal_attacker()
-    {
-        return this->heal_attacker;
-    }
-
-    void set_name(string name)
-    {
-        this->name = name;
-    }
-    void set_rounds(int rounds)
-    {
-        this->rounds = rounds;
-    }
-    void set_damage_defender(int damage_defender)
-    {
-        this->damage_defender = damage_defender;
-    }
-    void set_damage_attacker(int damage_attacker)
-    {
-        this->damage_attacker = damage_attacker;
-    }
-    void set_heal_defender(int heal_defender)
-    {
-        this->heal_defender = heal_defender;
-    }
-    void set_heal_attacker(int heal_attacker)
-    {
-        this->heal_attacker = heal_attacker;
+        return this->action;
     }
 };
+ostream &operator<<(ostream &out, Ability const &data)
+{
+    out << "Name: " << data.getAbilitynName() << endl;
+    return out;
+}
