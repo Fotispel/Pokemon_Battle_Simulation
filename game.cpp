@@ -42,16 +42,45 @@ ACTION: START
 HEAL ATTACKER 30
 END
 }*/
-CREATE POKEMON {
-NAME: "Charizard",
-TYPE: "Fire",
-HP: 100
+CREATE POKEMON{
+    NAME : "Charizard",
+    TYPE : "Fire",
+    HP : 100
 }
-CREATE POKEMON {
-NAME: "Pikachu",
-TYPE: "Electric",
-HP: 90
-}/*
+
+CREATE POKEMON{
+    NAME : "Pikachu",
+    TYPE : "Electric",
+    HP : 90
+}
+CREATE POKEMONS [
+POKEMON{
+NAME: "Ho Oh",
+TYPE: "Fire",
+HP: 120
+},
+POKEMON{
+NAME: "Bulbasaur",
+TYPE: "Grass",
+HP: 85
+}
+]
+;
+/*for (const auto &pair : allPokemons)
+{
+    cout << pair.second << std::endl;
+}*/
+
+CREATE ABILITY {
+NAME: "Bite",
+ACTION: START
+    DAMAGE DEFENDER 10
+END
+}
+;cout<<allPokemons["Bulbasaur"]<<endl;
+;cout<< allAbilities["Bite"].getAbilitynName() << " " << allAbilities["Bite"].getAbilityAction() << " " << endl;
+
+/*
 DEAR "Charizard" LEARN [
 ABILITY_NAME(Bite)
 ABILITY_NAME(Solar_Power)
