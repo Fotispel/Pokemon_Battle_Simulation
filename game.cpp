@@ -1,5 +1,5 @@
 #include "pokemon_abilities.h"
-#include "pokemon_actions.h"
+#include "pokemon.h"
 /*BEGIN_GAME
 class Create_Ability {
     Create_Ability ca{
@@ -66,19 +66,20 @@ HP: 85
 }
 ]
 ;
-/*for (const auto &pair : allPokemons)
-{
-    cout << pair.second << std::endl;
-}*/
 
+/*
 CREATE ABILITY {
 NAME: "Bite",
 ACTION: START
-    DAMAGE DEFENDER 10
+    FOR 5 ROUNDS DO
+
+    END
 END
 }
+*/
+
 ;cout<<allPokemons["Bulbasaur"]<<endl;
-;cout<< allAbilities["Bite"].getAbilitynName() << " " << allAbilities["Bite"].getAbilityAction() << " " << endl;
+;cout<< allAbilities["Bite"].getAbilityName() << " " << allAbilities["Bite"].getAbilityAction() << " " << endl;
 
 /*
 DEAR "Charizard" LEARN [
