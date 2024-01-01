@@ -5,15 +5,15 @@
 #define IF if
 #define ELSE else
 #define DO
-#define END })
-#define ROUNDS ; i++)
 #define HEAL
 #define DAMAGE
 #define ATTACKER
 #define DEFENDER
 #define ACTION false ? ([]() {})
-#define START ([]() {
+#define START []() {
 #define FOR for(int i=0; i<
+#define ROUNDS ; i++) {
+#define END }
 
 class Ability;
 map<string, Ability> allAbilities;
