@@ -91,18 +91,16 @@ END
 CREATE ABILITY {
 NAME: "Bite",
 ACTION: START
-    FOR 5 ROUNDS DO
-        //DAMAGE DEFENDER 8;
-    END
+    cout << "Executed" << endl << endl;
 END
 }
 
-
+    
 ;for (const auto &pokemon : allPokemons) {
     cout << "Name: " << pokemon.second.getPokemonName() << ", Type: " << pokemon.second.getPokemonType() << ", HP: " << pokemon.second.getHealthPoints() << endl << endl;
 }
 
-for (const auto &ability : allAbilities) {
+;for (const auto &ability : allAbilities) {
     cout << ability.second.getAbilityName() << endl;
 }
 

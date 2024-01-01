@@ -42,10 +42,19 @@ public:
     }
     Ability(string name, function<void()> action) : name(name), action(action){
         allAbilities.insert(make_pair(name, *this));
+        executeAction();
     }
     string getAbilityName() const
     {
         return this->name;
+    }
+
+    void executeAction() {
+        if (action) {
+            action();
+        } else {
+            cout << "No action defined for " << name << endl;
+        }
     }
 
     Ability operator,(Ability ab)
