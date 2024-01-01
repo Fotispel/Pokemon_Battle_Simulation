@@ -5,6 +5,7 @@
 #include <typeinfo>
 #include <vector>
 #include <map>
+#include <functional>
 
 #define CREATE ;
 #define NAME false ? "Smarty"

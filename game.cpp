@@ -53,18 +53,38 @@ CREATE POKEMON{
     TYPE : "Electric",
     HP : 90
 }
+
 CREATE POKEMONS [
 POKEMON{
-NAME: "Ho Oh",
-TYPE: "Fire",
-HP: 120
+    NAME: "Ho Oh",
+    TYPE: "Fire",
+    HP: 120
 },
 POKEMON{
-NAME: "Bulbasaur",
-TYPE: "Grass",
-HP: 85
+    NAME: "Bulbasaur",
+    TYPE: "Grass",
+    HP: 85
 }
 ]
+;
+
+CREATE ABILITIES [
+    ABILITY{
+    NAME: "Bite"
+    },
+    ABILITY{
+    NAME: "Solar_Power"
+    }
+]
+;
+
+CREATE ABILITY {
+NAME: "Slash",
+ACTION: START
+    //DAMAGE DEFENDER 22
+    //HEAL ATTACKER 10
+END
+}
 ;
 
 /*
@@ -78,8 +98,14 @@ END
 }
 */
 
-;cout<<allPokemons["Bulbasaur"]<<endl;
-;cout<< allAbilities["Bite"].getAbilityName() << " " << allAbilities["Bite"].getAbilityAction() << " " << endl;
+;for (const auto &pokemon : allPokemons) {
+    cout << "Name: " << pokemon.second.getPokemonName() << ", Type: " << pokemon.second.getPokemonType() << ", HP: " << pokemon.second.getHealthPoints() << endl << endl;
+}
+
+for (const auto &ability : allAbilities) {
+    cout << ability.second.getAbilityName() << endl;
+}
+
 
 /*
 DEAR "Charizard" LEARN [
