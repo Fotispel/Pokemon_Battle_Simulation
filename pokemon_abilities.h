@@ -2,11 +2,21 @@
 
 #define ABILITY Ability
 #define ABILITIES Ability abil; Ability abi = abil
-#define POKEMON_NAME(name) 
-#define IF if
-#define ELSE else
-#define DO
-#define HEAL ;healValues
+#define POKEMON_NAME(name)
+#define DEAR ;string tempPokemon=
+#define LEARN ; Ability dummyAbility; Ability dummyAbility2 = dummyAbility
+#define ABILITY_NAME(name) allPokemons[tempPokemon].pokeAbilities.insert(make_pair("name",allAbilities["name"]))
+#define GET_HP(Pokemon) Pokemon.getHealthPoints()
+#define GET_TYPE(Pokemon) Pokemon.getPokemonType()
+#define GET_NAME(Pokemon) Pokemon.getPokemonName()
+#define IS_IN_POKEBALL(Pokemon) Pokemon.isInPokeball()
+#define IF if (
+#define ELSE }else {
+#define AND(case1, case2) case1 && case2
+#define OR(case1, case2) case1 || case2
+#define NOT !
+#define DO ){
+#define HEAL ;healValues[allAbilitiesInOrder[t]]
 #define DAMAGE ;damageValues[allAbilitiesInOrder[t]]
 #define POKEBALL ;pokeball
 #define ATTACKER ["attacker"+to_string(i++)] = 
@@ -14,8 +24,8 @@
 #define ACTION false ? ([]() {})
 #define START []() { t++; i = 1; v = 1;
 #define FOR ;for(int f=0; f<
-#define ROUNDS ; f++) {
-#define END ;cout <<"RESULTS for " << allAbilitiesInOrder[t] << endl;\
+#define ROUNDS ; f++
+#define END ;/*cout <<"RESULTS for " << allAbilitiesInOrder[t] << endl;\
         for (i=0; i<100; i++) \
         { if (damageValues[allAbilitiesInOrder[t]]["attacker"+to_string(i)]!=0) {cout<<damageValues[allAbilitiesInOrder[t]]["attacker"+to_string(i)]; cout << " ";}} \
         cout<<endl;\
@@ -27,7 +37,7 @@
         cout<<endl;\
         for (i=0; i<100; i++) \
         { if (healValues[allAbilitiesInOrder[t]]["defender"+to_string(i)]!=0) {cout<<healValues[allAbilitiesInOrder[t]]["defender"+to_string(i)]; cout << " ";}} \
-        cout<<endl;\
+        cout<<endl;*/\
         }
 
 
@@ -55,7 +65,9 @@
 
 
 class Ability;
-map<string, map<string, int>> damageValues; map<string,map<string, int>> healValues; map<string,string> pokeball[100];
+map<string, map<string, int>> damageValues; 
+map<string,map<string, int>> healValues; 
+map<string,string> pokeball;
 int t=-1 ,i, v;
 map<string, Ability> allAbilities;
 vector <string> allAbilitiesInOrder;

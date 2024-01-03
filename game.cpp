@@ -93,6 +93,8 @@ ACTION: START
     DAMAGE ATTACKER 22
     DAMAGE ATTACKER 25
     DAMAGE DEFENDER 23
+    HEAL DEFENDER 24
+    HEAL DEFENDER 25
 END
 }
 
@@ -104,8 +106,18 @@ END
     cout << "Name: " << pokemon.second.getPokemonName() << ", Type: " << pokemon.second.getPokemonType() << ", HP: " << pokemon.second.getHealthPoints() << endl << endl;
 }
 
-;for (const auto &ability : allAbilities) {
-    cout << ability.second.getAbilityName() << endl;
+Pokemon player1 = Pokemon(allPokemons["Charizard"]);
+Pokemon player2 = Pokemon(allPokemons["Pikachu"]);
+
+Pokemon attacker = player1;
+Pokemon defender = player2;
+
+GET_TYPE(attacker);
+GET_NAME(attacker);
+IS_IN_POKEBALL(attacker);
+
+if (AND(GET_NAME(attacker) == "Charizard", GET_TYPE(attacker) == "Fire")) {
+    cout << "Attacker is Charizard" << endl;
 }
 
 

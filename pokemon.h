@@ -12,7 +12,7 @@ private:
 	string name;
 	string type;
 	int health_points;
-	bool inPokeball;
+	bool inPokeball = false;
 public:
 	Pokemon() {}
 	map<string, Pokemon> pokeAbilities;
