@@ -87,7 +87,6 @@ ACTION: START
     DAMAGE DEFENDER 23
     HEAL ATTACKER 30
     HEAL DEFENDER 35
-    ;cout << "heal " << healValues["attacker1"] << endl;
 END
 }
 

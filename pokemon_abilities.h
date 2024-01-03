@@ -16,16 +16,16 @@
 #define ROUNDS ; f++) {
 #define END ;cout <<"RESULTS: "<<endl;\
         for (i=0; i<100; i++) \
-        { if (damageValues["attacker"+to_string(i)]!=0) {cout<<damageValues["attacker"+to_string(i)]; damageValues["attacker"+to_string(i)]=0; cout << " ";}} \
+        { if (damageValues["attacker"+to_string(i)]!=0) {cout<<damageValues["attacker"+to_string(i)]; cout << " ";}} \
         cout<<endl;\
         for (i=0; i<100; i++) \
-        { if (damageValues["defender"+to_string(i)]!=0) {cout<<damageValues["defender"+to_string(i)]; damageValues["defender"+to_string(i)]=0; cout << " ";}} \
+        { if (damageValues["defender"+to_string(i)]!=0) {cout<<damageValues["defender"+to_string(i)]; cout << " ";}} \
         cout<<endl;\
         for (i=0; i<100; i++) \
-        {if (healValues["attacker"+to_string(i)]!=0) {cout<<healValues["attacker"+to_string(i)]; healValues["attacker"+to_string(i)]=0; cout<<" ";}} \
+        {if (healValues["attacker"+to_string(i)]!=0) {cout<<healValues["attacker"+to_string(i)]; cout<<" ";}} \
         cout<<endl;\
         for (i=0; i<100; i++) \
-        {if (healValues["defender"+to_string(i)]!=0) {cout<<healValues["defender"+to_string(i)]; healValues["defender"+to_string(i)]=0; cout<<" ";}} \
+        {if (healValues["defender"+to_string(i)]!=0) {cout<<healValues["defender"+to_string(i)]; cout<<" ";}} \
         cout<<endl;\
         } 
 
