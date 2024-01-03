@@ -5,15 +5,29 @@
 #define IF if
 #define ELSE else
 #define DO
-#define HEAL
-#define DAMAGE
-#define ATTACKER
-#define DEFENDER
+#define HEAL ;healValues
+#define DAMAGE ;damageValues
+#define POKEBALL ;pokeball
+#define ATTACKER ["attacker"+to_string(i++)] = 
+#define DEFENDER ["defender"+to_string(v++)] =
 #define ACTION false ? ([]() {})
-#define START []() {
-#define FOR for(int i=0; i<
-#define ROUNDS ; i++) {
-#define END }
+#define START []() { map<string, int> damageValues; map<string, int> healValues; map<string,string> pokeball; int i = 1; int v = 1;
+#define FOR ;for(int f=0; f<
+#define ROUNDS ; f++) {
+#define END ;cout <<"RESULTS: "<<endl;\
+        for (i=0; i<100; i++) \
+        { if (damageValues["attacker"+to_string(i)]!=0) {cout<<damageValues["attacker"+to_string(i)]; damageValues["attacker"+to_string(i)]=0; cout << " ";}} \
+        cout<<endl;\
+        for (i=0; i<100; i++) \
+        { if (damageValues["defender"+to_string(i)]!=0) {cout<<damageValues["defender"+to_string(i)]; damageValues["defender"+to_string(i)]=0; cout << " ";}} \
+        cout<<endl;\
+        for (i=0; i<100; i++) \
+        {if (healValues["attacker"+to_string(i)]!=0) {cout<<healValues["attacker"+to_string(i)]; healValues["attacker"+to_string(i)]=0; cout<<" ";}} \
+        cout<<endl;\
+        for (i=0; i<100; i++) \
+        {if (healValues["defender"+to_string(i)]!=0) {cout<<healValues["defender"+to_string(i)]; healValues["defender"+to_string(i)]=0; cout<<" ";}} \
+        cout<<endl;\
+        } 
 
 class Ability;
 map<string, Ability> allAbilities;
@@ -23,7 +37,6 @@ class Ability
 private:
     string name;
     function<void()> action;
-    string str;
 
 public:
     vector<Ability> uselessVector;

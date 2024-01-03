@@ -81,17 +81,13 @@ CREATE ABILITIES [
 CREATE ABILITY {
 NAME: "Slash",
 ACTION: START
-    //DAMAGE DEFENDER 22
-    //HEAL ATTACKER 10
-END
-}
-;
-
-
-CREATE ABILITY {
-NAME: "Bite",
-ACTION: START
-    cout << "Executed" << endl << endl;
+    //damageValues["attacker1"] = 22;
+    DAMAGE ATTACKER 22
+    DAMAGE ATTACKER 25
+    DAMAGE DEFENDER 23
+    HEAL ATTACKER 30
+    HEAL DEFENDER 35
+    ;cout << "heal " << healValues["attacker1"] << endl;
 END
 }
 
