@@ -121,18 +121,16 @@ if (AND(GET_NAME(attacker) == "Charizard", GET_TYPE(attacker) == "Fire")) {
 }
 
 
-/*
+
 DEAR "Charizard" LEARN [
 ABILITY_NAME(Bite)
 ABILITY_NAME(Solar_Power)
 ABILITY_NAME(Slash)
 ABILITY_NAME(Blaze)
-]
+];
 DEAR "Pikachu" LEARN [
 ABILITY_NAME(Bite)
 ABILITY_NAME(Slash)
 ABILITY_NAME(Electric_Shock)
-]
-
-DUEL*/
+];
 END_GAME

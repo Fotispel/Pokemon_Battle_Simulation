@@ -7,6 +7,7 @@
 #include <map>
 #include <functional>
 #include <unordered_map>
+#include<bits/stdc++.h>
 
 #define CREATE ;
 #define NAME false ? "Smarty"
@@ -19,3 +20,4 @@
     }
 
 using namespace std;
+string tempPokemon;

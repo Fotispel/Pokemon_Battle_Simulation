@@ -3,9 +3,10 @@
 #define ABILITY Ability
 #define ABILITIES Ability abil; Ability abi = abil
 #define POKEMON_NAME(name)
-#define DEAR ;string tempPokemon=
+#define DEAR ; tempPokemon=
 #define LEARN ; Ability dummyAbility; Ability dummyAbility2 = dummyAbility
-#define ABILITY_NAME(name) allPokemons[tempPokemon].pokeAbilities.insert(make_pair("name",allAbilities["name"]))
+#define DUMMY(s1,s2) s1 ## s2
+#define ABILITY_NAME(name) DUMMY(#name,"@")
 #define GET_HP(Pokemon) Pokemon.getHealthPoints()
 #define GET_TYPE(Pokemon) Pokemon.getPokemonType()
 #define GET_NAME(Pokemon) Pokemon.getPokemonName()
@@ -121,9 +122,24 @@ public:
     {
         return ab;
     }
+	Ability operator[](string s){
+		Ability ab2;
+		stringstream splitter(s);
+		string AbilityName;
+		Pokemon dummyPokemon=allPokemons[tempPokemon];
+		while(!splitter.eof()){
+			getline(splitter, AbilityName, '@');
+			dummyPokemon.pokeAbilities.insert(make_pair(AbilityName,allAbilities[AbilityName]));
+		}
+		return ab2;
+	}
 };
 ostream &operator<<(ostream &out, Ability const &data)
 {
     out << "Name: " << data.getAbilityName() << endl;
     return out;
+}
+Ability operator+(string ppp){
+		Ability ab;
+
 }
