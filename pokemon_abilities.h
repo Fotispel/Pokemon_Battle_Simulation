@@ -11,17 +11,23 @@
 #define ATTACKER ["attacker"+to_string(i++)] = 
 #define DEFENDER ["defender"+to_string(v++)] =
 #define ACTION false ? ([]() {})
-#define START []() { t++; map<string, map<string, int>> damageValues; map<string,map<string, int>> healValues; map<string,string> pokeball[100]; i = 1; v = 1;
+#define START []() { t++; i = 1; v = 1;
 #define FOR ;for(int f=0; f<
 #define ROUNDS ; f++) {
 #define END ;cout <<"RESULTS for " << allAbilitiesInOrder[t] << endl;\
         for (i=0; i<100; i++) \
-        { if (damageValues[allAbilitiesInOrder[t]]["attacker"+to_string(i)]!=0) {cout<<damageValues[allAbilitiesInOrder[t]]["attacker"+to_string(i)]; damageValues[allAbilitiesInOrder[t]]["attacker"+to_string(i)]=0; cout << " ";}} \
+        { if (damageValues[allAbilitiesInOrder[t]]["attacker"+to_string(i)]!=0) {cout<<damageValues[allAbilitiesInOrder[t]]["attacker"+to_string(i)]; cout << " ";}} \
         cout<<endl;\
         for (i=0; i<100; i++) \
-        { if (damageValues[allAbilitiesInOrder[t]]["defender"+to_string(i)]!=0) {cout<<damageValues[allAbilitiesInOrder[t]]["defender"+to_string(i)]; damageValues[allAbilitiesInOrder[t]]["defender"+to_string(i)]=0; cout << " ";}} \
+        { if (damageValues[allAbilitiesInOrder[t]]["defender"+to_string(i)]!=0) {cout<<damageValues[allAbilitiesInOrder[t]]["defender"+to_string(i)]; cout << " ";}} \
         cout<<endl;\
-        } 
+        for (i=0; i<100; i++) \
+        { if (healValues[allAbilitiesInOrder[t]]["attacker"+to_string(i)]!=0) {cout<<healValues[allAbilitiesInOrder[t]]["attacker"+to_string(i)]; cout << " ";}} \
+        cout<<endl;\
+        for (i=0; i<100; i++) \
+        { if (healValues[allAbilitiesInOrder[t]]["defender"+to_string(i)]!=0) {cout<<healValues[allAbilitiesInOrder[t]]["defender"+to_string(i)]; cout << " ";}} \
+        cout<<endl;\
+        }
 
 
 #define DUEL \
@@ -48,6 +54,7 @@
 
 
 class Ability;
+map<string, map<string, int>> damageValues; map<string,map<string, int>> healValues; map<string,string> pokeball[100];
 int t=-1 ,i, v;
 map<string, Ability> allAbilities;
 vector <string> allAbilitiesInOrder;
