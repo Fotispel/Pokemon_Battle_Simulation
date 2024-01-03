@@ -2,6 +2,7 @@
 
 #define ABILITY Ability
 #define ABILITIES Ability abil; Ability abi = abil
+#define POKEMON_NAME(name) 
 #define IF if
 #define ELSE else
 #define DO

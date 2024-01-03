@@ -9,6 +9,7 @@ class Pokemon;
 map<string, Pokemon> allPokemons;
 class Pokemon{
 private:
+	unordered_map<string, Pokemon> pokeAbility;
 	string name;
 	string type;
 	int health_points;
