@@ -6,31 +6,51 @@
 #define ELSE else
 #define DO
 #define HEAL ;healValues
-#define DAMAGE ;damageValues
+#define DAMAGE ;damageValues[allAbilitiesInOrder[t]]
 #define POKEBALL ;pokeball
 #define ATTACKER ["attacker"+to_string(i++)] = 
 #define DEFENDER ["defender"+to_string(v++)] =
 #define ACTION false ? ([]() {})
-#define START []() { map<string, int> damageValues; map<string, int> healValues; map<string,string> pokeball; int i = 1; int v = 1;
+#define START []() { t++; map<string, map<string, int>> damageValues; map<string,map<string, int>> healValues; map<string,string> pokeball[100]; i = 1; v = 1;
 #define FOR ;for(int f=0; f<
 #define ROUNDS ; f++) {
-#define END ;cout <<"RESULTS: "<<endl;\
+#define END ;cout <<"RESULTS for " << allAbilitiesInOrder[t] << endl;\
         for (i=0; i<100; i++) \
-        { if (damageValues["attacker"+to_string(i)]!=0) {cout<<damageValues["attacker"+to_string(i)]; damageValues["attacker"+to_string(i)]=0; cout << " ";}} \
+        { if (damageValues[allAbilitiesInOrder[t]]["attacker"+to_string(i)]!=0) {cout<<damageValues[allAbilitiesInOrder[t]]["attacker"+to_string(i)]; damageValues[allAbilitiesInOrder[t]]["attacker"+to_string(i)]=0; cout << " ";}} \
         cout<<endl;\
         for (i=0; i<100; i++) \
-        { if (damageValues["defender"+to_string(i)]!=0) {cout<<damageValues["defender"+to_string(i)]; damageValues["defender"+to_string(i)]=0; cout << " ";}} \
-        cout<<endl;\
-        for (i=0; i<100; i++) \
-        {if (healValues["attacker"+to_string(i)]!=0) {cout<<healValues["attacker"+to_string(i)]; healValues["attacker"+to_string(i)]=0; cout<<" ";}} \
-        cout<<endl;\
-        for (i=0; i<100; i++) \
-        {if (healValues["defender"+to_string(i)]!=0) {cout<<healValues["defender"+to_string(i)]; healValues["defender"+to_string(i)]=0; cout<<" ";}} \
+        { if (damageValues[allAbilitiesInOrder[t]]["defender"+to_string(i)]!=0) {cout<<damageValues[allAbilitiesInOrder[t]]["defender"+to_string(i)]; damageValues[allAbilitiesInOrder[t]]["defender"+to_string(i)]=0; cout << " ";}} \
         cout<<endl;\
         } 
 
+
+#define DUEL \
+        cout << "--------------------------------POKEMON THE GAME--------------------------------" << endl;\
+        cout << "Player 1 select pokemon: " << endl;\
+        cout << "------------------------------------------" << endl;\
+        for (const auto &pokemon : allPokemons) { \
+            cout << pokemon.second.getPokemonName() << endl;\
+        } \
+        cout << "------------------------------------------" << endl;\
+        string pokemon1; \
+        cin >> pokemon1; \
+        cout << endl;\
+        cout << "Player 2 select pokemon: " << endl;\
+        cout << "------------------------------------------" << endl;\
+        string pokemon2; \
+        cin >> pokemon2; \
+        cout << endl;\
+        cout << "------------------------------------------" << endl;\
+        cout << "Round1" << endl;\
+        cout << "------------------------------------------" << endl;\
+        cout << "Player 1 select ability: " << endl;\
+
+
+
 class Ability;
+int t=-1 ,i, v;
 map<string, Ability> allAbilities;
+vector <string> allAbilitiesInOrder;
 
 class Ability
 {
@@ -50,11 +70,13 @@ public:
     Ability(string name)
     {
         this->name = name;
+        allAbilitiesInOrder.push_back(name);
         Ability dummy(this);
-        allAbilities.insert(pair<string, Ability>(getAbilityName(), dummy));
+        allAbilities[getAbilityName()] = dummy;
     }
     Ability(string name, function<void()> action) : name(name), action(action){
         allAbilities.insert(make_pair(name, *this));
+        allAbilitiesInOrder.push_back(name);
         executeAction();
     }
     string getAbilityName() const

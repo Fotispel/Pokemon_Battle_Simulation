@@ -28,7 +28,7 @@ public:
 		this->type = type;
 		this->health_points = hp;
 		Pokemon dummy(this); // or Pokemon *dummy = new Pokemon(this);
-		allPokemons.insert(pair<string, Pokemon>(getPokemonName(), dummy));
+		allPokemons[getPokemonName()] = dummy;
 		// delete dummy;
 	}
 	string getPokemonName() const{

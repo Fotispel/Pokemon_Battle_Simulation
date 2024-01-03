@@ -70,10 +70,19 @@ POKEMON{
 
 CREATE ABILITIES [
     ABILITY{
-    NAME: "Bite"
+    NAME: "Bite",
+    ACTION: START
+    END
     },
     ABILITY{
-    NAME: "Solar_Power"
+    NAME: "Solar_Power",
+    ACTION: START
+    END
+    },
+    ABILITY{
+    NAME: "Extra Attack",
+    ACTION: START
+    END
     }
 ]
 ;
@@ -81,15 +90,15 @@ CREATE ABILITIES [
 CREATE ABILITY {
 NAME: "Slash",
 ACTION: START
-    //damageValues["attacker1"] = 22;
     DAMAGE ATTACKER 22
     DAMAGE ATTACKER 25
     DAMAGE DEFENDER 23
-    HEAL ATTACKER 30
-    HEAL DEFENDER 35
 END
 }
 
+;for (const auto &ability : allAbilitiesInOrder) {
+    cout << ability << endl;
+}
     
 ;for (const auto &pokemon : allPokemons) {
     cout << "Name: " << pokemon.second.getPokemonName() << ", Type: " << pokemon.second.getPokemonType() << ", HP: " << pokemon.second.getHealthPoints() << endl << endl;
@@ -112,5 +121,6 @@ ABILITY_NAME(Bite)
 ABILITY_NAME(Slash)
 ABILITY_NAME(Electric_Shock)
 ]
+
 DUEL*/
 END_GAME
