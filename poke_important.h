@@ -45,7 +45,7 @@ extern string tempPokemon;
 #define DO ){
 #define HEAL ;healValues[allAbilitiesInOrder[t]]
 #define DAMAGE ;damageValues[allAbilitiesInOrder[t]]
-#define POKEBALL ;pokeball
+#define POKEBALL ;pokeballMap[allAbilitiesInOrder[t]]
 #define ATTACKER ["attacker"+to_string(i++)] = 
 #define DEFENDER ["defender"+to_string(v++)] =
 #define ACTION false ? ([]() {})
