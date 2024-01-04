@@ -18,7 +18,6 @@ extern string tempPokemon;
 #define BEGIN_GAME \
     int main(){\
 	Ability dummyAbility; Ability dummyAbility2; \
-	map<string,string> pokeball;
 
 #define END_GAME \
     ;            \
