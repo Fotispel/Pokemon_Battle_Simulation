@@ -4,9 +4,10 @@
 class Pokeball {
     public:
 		Pokeball() {};
+		Pokeball(string);
 		Pokeball operator-();
 		Pokeball operator--();
-		Pokeball(int);
+		string getName();
 	private:
 		string value;
 };

@@ -92,12 +92,35 @@ CREATE ABILITY {
 NAME: "Slash",
 ACTION: START
     DAMAGE ATTACKER 22
-    DAMAGE ATTACKER 25
-    DAMAGE DEFENDER 23
+    DAMAGE ATTACKER 23
+    DAMAGE DEFENDER 24
     POKEBALL ATTACKER ---α
-    HEAL DEFENDER 24
-    HEAL DEFENDER 25
+    POKEBALL DEFENDER _
+    HEAL ATTACKER 25
+    HEAL DEFENDER 26
 
+    /*
+    ;if (pokeballMap["Slash"]["attacker3"].getName() == "α") {
+        cout << "Slash is a (---a)" << endl;
+    }
+    else {
+        cout << "Slash is not a (---a)" << endl;
+    }
+
+    ;if (pokeballMap["Slash"]["attacker15"].getName() == "_") {
+        cout << "Slash is a (---a)" << endl;
+    }
+    else {
+        cout << "Slash is not a (---a)" << endl;
+    }
+
+    ;if (pokeballMap["Slash"]["defender2"].getName() == "_") {
+        cout << "Slash is a (_)" << endl << endl;
+    }
+    else {
+        cout << "Slash is not a (_)" << endl;
+    }
+    */
 END
 }
 
