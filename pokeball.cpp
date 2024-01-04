@@ -5,9 +5,9 @@ Pokeball Pokeball::operator-(){
 Pokeball Pokeball::operator--(){
 	return *this;
 }
-Pokeball::Pokeball(string value){
+Pokeball::Pokeball(int value){
 	this->value = value;
 }
+map<string,map<string,Pokeball>> pokeballMap;
 Pokeball α;
 Pokeball _;
-map<string,map<string,Pokeball>> pokeballMap;

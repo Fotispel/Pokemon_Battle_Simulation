@@ -1,5 +1,6 @@
 #include "pokemon.h"
 #include "pokemon_abilities.h"
+#include "pokeball.h"
 /*BEGIN_GAME
 class Create_Ability {
     Create_Ability ca{

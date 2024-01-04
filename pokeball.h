@@ -2,11 +2,12 @@
 #ifndef POKEBALL_H
 #define POKEBALL_H
 class Pokeball {
-    private:
-        string value;
     public:
-    Pokeball operator-();
-    Pokeball operator--();
-    Pokeball(string);
+		Pokeball() {};
+		Pokeball operator-();
+		Pokeball operator--();
+		Pokeball(int);
+	private:
+		string value;
 };
 #endif
