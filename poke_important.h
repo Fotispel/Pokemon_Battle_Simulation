@@ -1,6 +1,7 @@
 //για κοινόχρηστα define & include
 #ifndef POKE_IMPORTANT
 #define POKE_IMPORTANT
+#include "pokeball.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -11,10 +12,13 @@
 #include <functional>
 #include<bits/stdc++.h>
 using namespace std;
+class Pokeball;
 #define CREATE ;
 #define NAME false ? "Smarty"
 extern int t,i, v;
 extern string tempPokemon;
+extern Pokeball α;
+extern map<string,map<string,Pokeball>> pokeballMap;
 #define BEGIN_GAME \
     int main(){\
 	Ability dummyAbility; Ability dummyAbility2; \
@@ -51,6 +55,7 @@ extern string tempPokemon;
 #define ACTION false ? ([]() {})
 #define START []() { t++; i = 1; v = 1;
 #define FOR ;for(int f=0; f<
+#define POKEBALL ;pokeballMap[allAbilitiesInOrder[t]]
 #define ROUNDS ; f++
 #define END ;/*cout <<"RESULTS for " << allAbilitiesInOrder[t] << endl;\
         for (i=0; i<100; i++) \
