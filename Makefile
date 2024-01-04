@@ -1,5 +1,5 @@
 build:
-	g++ -std=c++11 -Wall game.cpp -o pokebattle
+	g++ -std=c++11 -Wall pokemon.cpp pokemon_abilities.cpp game.cpp -o pokebattle
 prepross:
 	g++ -std=c++11 -Wall -E game.cpp -o pokebattle
 clear:
