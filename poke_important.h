@@ -73,26 +73,6 @@ extern map<string,map<string,Pokeball>> pokeballMap;
         }
 
 
-#define DUEL \
-        cout << "--------------------------------POKEMON THE GAME--------------------------------" << endl;\
-        cout << "Player 1 select pokemon: " << endl;\
-        cout << "------------------------------------------" << endl;\
-        for (const auto &pokemon : allPokemons) { \
-            cout << pokemon.second.getPokemonName() << endl;\
-        } \
-        cout << "------------------------------------------" << endl;\
-        string pokemon1; \
-        cin >> pokemon1; \
-        cout << endl;\
-        cout << "Player 2 select pokemon: " << endl;\
-        cout << "------------------------------------------" << endl;\
-        string pokemon2; \
-        cin >> pokemon2; \
-        cout << endl;\
-        cout << "------------------------------------------" << endl;\
-        cout << "Round1" << endl;\
-        cout << "------------------------------------------" << endl;\
-        cout << "Player 1 select ability: " << endl;
 template <typename T>
 T AndProMax(T arg1, T arg2){
 	return arg1 && arg2;

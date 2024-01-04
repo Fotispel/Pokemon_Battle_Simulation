@@ -1,6 +1,7 @@
 #include "pokemon.h"
 #include "pokemon_abilities.h"
 #include "pokeball.h"
+#include "duel.h"
 /*BEGIN_GAME
 class Create_Ability {
     Create_Ability ca{
@@ -59,7 +60,7 @@ CREATE POKEMONS [
 POKEMON{
     NAME: "Ho Oh",
     TYPE: "Fire",
-    HP: 120
+    HP: 80
 },
 POKEMON{
     NAME: "Bulbasaur",
@@ -73,6 +74,7 @@ CREATE ABILITIES [
     ABILITY{
     NAME: "Bite",
     ACTION: START
+        DAMAGE DEFENDER 20
     END
     },
     ABILITY{
@@ -124,6 +126,7 @@ ACTION: START
 END
 }
 
+/*
 ;for (const auto &ability : allAbilitiesInOrder) {
     cout << ability << endl;
 }
@@ -146,7 +149,7 @@ if (AND(GET_NAME(attacker) == "Charizard", GET_TYPE(attacker) == "Fire")) {
     cout << "Attacker is Charizard" << endl;
 }
 
-
+*/
 
 DEAR "Charizard" LEARN [
 ABILITY_NAME(Bite)
@@ -159,4 +162,6 @@ ABILITY_NAME(Bite)
 ABILITY_NAME(Slash)
 ABILITY_NAME(Electric_Shock)
 ];
+
+DUEL
 END_GAME
