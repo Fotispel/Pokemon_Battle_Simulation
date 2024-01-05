@@ -36,7 +36,7 @@ extern map<string,map<string,Pokeball>> pokeballMap;
 #define POKEMON_NAME(name) +string(#name)+"@"
 #define DEAR ; tempPokemon=
 #define LEARN ; dummyAbility=dummyAbility2
-#define ABILITY_NAME(name) #name
+#define ABILITY_NAME(name) +string(#name)+"@"
 #define GET_HP(Pokemon) Pokemon.getHealthPoints()
 #define GET_TYPE(Pokemon) Pokemon.getPokemonType()
 #define GET_NAME(Pokemon) Pokemon.getPokemonName()

@@ -3,6 +3,7 @@
 #include "pokemon_abilities.h"
 #include "pokeball.h"
 
+
 #define DUEL\
         int round = 1;\
         string pokemon1, pokemon2, ability;\
@@ -24,26 +25,55 @@
         player[0] = Pokemon(allPokemons[pokemon1]);\
         player[1] = Pokemon(allPokemons[pokemon2]);\
         while (player[0].getHealthPoints() > 0 && player[1].getHealthPoints() > 0) {\
-            int isAttacking = find_WhoIsAttacker(round);\
-            int isDefending = isAttacking == 0 ? 1 : 0;\
+            int isAttacking = 0;\
+            int isDefending = 1;\
             cout << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << endl;\
             cout << "Round " << round << endl;\
             cout << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << endl;\
-            cout << player[0].getPokemonName() << "(Player" << isAttacking + 1 <<") select ability: " << endl;\
-            cout << "------------------------------------------" << endl;\
-            print_AllAbilities();\
-            cout << "------------------------------------------" << endl;\
-            do {\
-                getline(cin, ability);\
-            } while (!check_if_ability_exists(ability));\
-            do_ability_actions(player[isAttacking], player[isDefending], ability);\
-            cout << endl << "#############################" << endl;\
-            print_pokemon_info(player[0]);\
-            cout << "#############################" << endl;\
-            cout << endl << endl << endl;\
-            cout << "#############################" << endl;\
-            print_pokemon_info(player[1]);\
-            cout << "#############################" << endl << endl << endl;\
+            if (!player[isAttacking].isInPokeball()) {\
+                cout << player[0].getPokemonName() << "(Player" << isAttacking + 1 <<") select ability: " << endl;\
+                cout << "------------------------------------------" << endl;\
+                print_PokemonAbilities(player[isAttacking].getPokemonName());\
+                cout << "------------------------------------------" << endl;\
+                do {\
+                    getline(cin, ability);\
+                } while (!check_if_ability_exists(ability));\
+                do_ability_actions(player[isAttacking], player[isDefending], ability);\
+                cout << endl << "#############################" << endl;\
+                print_pokemon_info(player[0]);\
+                cout << "#############################" << endl;\
+                cout << endl << endl << endl;\
+                cout << "#############################" << endl;\
+                print_pokemon_info(player[1]);\
+                cout << "#############################" << endl << endl << endl;\
+            }\
+            else {\
+                cout << player[isAttacking].getPokemonName() << "(Player" << isAttacking + 1 << ") has not a pokemon out of pokeball so he can't cast an ability." << endl;\
+            }\
+            \
+            isAttacking = 1;\
+            isDefending = 0;\
+            if (!player[isAttacking].isInPokeball()) {\
+                cout << player[0].getPokemonName() << "(Player" << isAttacking + 1 <<") select ability: " << endl;\
+                cout << "------------------------------------------" << endl;\
+                print_PokemonAbilities(player[isAttacking].getPokemonName());\
+                cout << "------------------------------------------" << endl;\
+                do {\
+                    getline(cin, ability);\
+                } while (!check_if_ability_exists(ability));\
+                do_ability_actions(player[isAttacking], player[isDefending], ability);\
+                cout << endl << "#############################" << endl;\
+                print_pokemon_info(player[0]);\
+                cout << "#############################" << endl;\
+                cout << endl << endl << endl;\
+                cout << "#############################" << endl;\
+                print_pokemon_info(player[1]);\
+                cout << "#############################" << endl << endl << endl;\
+            }\
+            else {\
+                cout << player[isAttacking].getPokemonName() << "(Player" << isAttacking + 1 << ") has not a pokemon out of pokeball so he can't cast an ability." << endl;\
+            }\
+            \
             round++;\
         }\
         cout << endl << "------------------------------------------" << endl;\
@@ -86,6 +116,12 @@ void do_ability_actions(Pokemon &attacker, Pokemon &defender, string ability) {
     }
 }
 
+void print_PokemonAbilities(string pokemon_name) {
+    for (const auto &ability : allPokemons[pokemon_name].pokeAbilities) {
+        if (ability.first != "\0")
+            cout << ability.first << endl;
+    }
+}
 
 
 int find_WhoIsAttacker(int round) {
@@ -103,11 +139,7 @@ void print_AllPokemons() {
     }
 }
 
-void print_AllAbilities() {
-    for (const auto &ability : allAbilitiesInOrder) {
-        cout << ability << endl;
-    }
-}
+
 
 void print_pokemon_info(Pokemon pokemon) {
     cout << "Name: " << pokemon.getPokemonName() << endl\
