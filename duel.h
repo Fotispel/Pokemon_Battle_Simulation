@@ -25,8 +25,13 @@
         player[0] = Pokemon(allPokemons[pokemon1]);\
         player[1] = Pokemon(allPokemons[pokemon2]);\
         while (player[0].getHealthPoints() > 0 && player[1].getHealthPoints() > 0) {\
+            if (player[0].isInPokeball() && player[1].isInPokeball()) {\
+                break;\
+            }\
             int isAttacking = 0;\
             int isDefending = 1;\
+            Attacker_duel = player[isAttacking];\
+            Defender_duel = player[isDefending];\
             cout << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << endl;\
             cout << "Round " << round << endl;\
             cout << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << endl;\
@@ -38,7 +43,9 @@
                 do {\
                     getline(cin, ability);\
                 } while (!check_if_ability_exists(ability));\
-                do_ability_actions(player[isAttacking], player[isDefending], ability);\
+                do_ability_actions(ability);\
+                player[isAttacking] = Attacker_duel;\
+                player[isDefending] = Defender_duel;\
                 cout << endl << "#############################" << endl;\
                 print_pokemon_info(player[0]);\
                 cout << "#############################" << endl;\
@@ -53,6 +60,11 @@
             \
             isAttacking = 1;\
             isDefending = 0;\
+            Attacker_duel = player[isAttacking];\
+            Defender_duel = player[isDefending];\
+            if (player[isAttacking].isInPokeball() && player[isDefending].isInPokeball()) {\
+                break;\
+            }\
             if (!player[isAttacking].isInPokeball()) {\
                 cout << player[0].getPokemonName() << "(Player" << isAttacking + 1 <<") select ability: " << endl;\
                 cout << "------------------------------------------" << endl;\
@@ -61,7 +73,9 @@
                 do {\
                     getline(cin, ability);\
                 } while (!check_if_ability_exists(ability));\
-                do_ability_actions(player[isAttacking], player[isDefending], ability);\
+                do_ability_actions(ability);\
+                player[isAttacking] = Attacker_duel;\
+                player[isDefending] = Defender_duel;\
                 cout << endl << "#############################" << endl;\
                 print_pokemon_info(player[0]);\
                 cout << "#############################" << endl;\
@@ -81,40 +95,10 @@
         find_Winner(player[0], player[1]);
 
 
-void do_ability_actions(Pokemon &attacker, Pokemon &defender, string ability) {
-    int i;
-    for (i = 0; i<100 ; i++) {
-        if (damageValues[ability]["attacker" + to_string(i)] != 0) {
-            attacker.DamageAttacker(damageValues[ability]["attacker" + to_string(i)]);
-        }
-    }
-    for (i = 0; i<100 ; i++) {
-        if (damageValues[ability]["defender" + to_string(i)] != 0) {
-            defender.DamageAttacker(damageValues[ability]["defender" + to_string(i)]);
-        }
-        if (healValues[ability]["attacker" + to_string(i)] != 0) {
-            attacker.HealAttacker(healValues[ability]["attacker" + to_string(i)]);
-        }
-        if (healValues[ability]["defender" + to_string(i)] != 0) {
-            defender.HealAttacker(healValues[ability]["defender" + to_string(i)]);
-        }
-    }
-
-    for (i = 0; i<100 ; i++) {
-        if (pokeballMap[ability]["attacker" + to_string(i)].getName() == "_") {
-            attacker.putInPokeball();
-        }
-        if (pokeballMap[ability]["defender" + to_string(i)].getName() == "_") {
-            defender.putInPokeball();
-        }
-        if (pokeballMap[ability]["attacker" + to_string(i)].getName() == "α") {
-            attacker.putInPokeball();
-        }
-        if (pokeballMap[ability]["defender" + to_string(i)].getName() == "α") {
-            defender.putInPokeball();
-        }
-    }
+void do_ability_actions(string abilityName) {
+    Ability_with_actions[abilityName]();
 }
+
 
 void print_PokemonAbilities(string pokemon_name) {
     for (const auto &ability : allPokemons[pokemon_name].pokeAbilities) {
@@ -130,6 +114,15 @@ int find_WhoIsAttacker(int round) {
     }
     else {
         return 1;
+    }
+}
+
+int find_WhoIsDefender(int round) {
+    if (round % 2 == 1) {
+        return 1;
+    }
+    else {
+        return 0;
     }
 }
 
@@ -158,7 +151,7 @@ bool check_if_pokemon_exists(string pokemon) {
 }
 
 bool check_if_ability_exists(string ability) {
-    if (allAbilities.find(ability) == allAbilities.end()) {
+    if (allPokemons[Attacker_duel.getPokemonName()].pokeAbilities.find(ability) == allPokemons[Attacker_duel.getPokemonName()].pokeAbilities.end()) {
         cout << "Ability does not exist. Try again." << endl;
         return false;
     }
@@ -168,10 +161,10 @@ bool check_if_ability_exists(string ability) {
 }
 
 void find_Winner(Pokemon player1, Pokemon player2) {
-    if (player1.getHealthPoints() > player2.getHealthPoints()) {
+    if (player2.getHealthPoints() <= 0) {
         cout << player1.getPokemonName() << "(Player1) wins!" << endl;
     }
-    else if (player1.getHealthPoints() < player2.getHealthPoints()) {
+    else if (player1.getHealthPoints() <= 0) {
         cout << player2.getPokemonName() << "(Player2) wins!" << endl;
     }
     else {

@@ -2,8 +2,11 @@
 #define POKEMON_ABILITIES_H
 #include "poke_important.h"
 extern vector <string> allAbilitiesInOrder;
-extern map<string, map<string, int>> damageValues;
-extern map<string,map<string, int>> healValues;
+extern map<string, function<void()>> Ability_with_actions;
+extern string name_ability;
+extern bool heal, damage;
+
+
 class Ability;
 extern map<string, Ability> allAbilities;
 class Ability{

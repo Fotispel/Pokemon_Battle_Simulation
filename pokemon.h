@@ -3,7 +3,9 @@
 #define POKEMON_LIBRARY_H
 #include "pokemon_abilities.h"
 class Pokemon;
+extern Pokemon Attacker_duel, Defender_duel;
 extern map<string, Pokemon> allPokemons;
+
 class Pokemon{
 private:
 	string name;
@@ -24,6 +26,7 @@ public:
 	void HealDefender(Pokemon, int);
 	bool isInPokeball();//getter
 	void putInPokeball();//setter
+	void putOutPokeball();//setter
 	void DamageDefender(Pokemon, int);
 	string getPokemonType() const;
 	int getHealthPoints() const;

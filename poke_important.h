@@ -12,13 +12,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define CREATE ;
-#define NAME false ? "Smarty"
 class Pokeball;
 extern int t,i, v;
 extern string tempPokemon;
 extern Pokeball α;
-extern Pokeball _;
-extern map<string,map<string,Pokeball>> pokeballMap;
+extern char _;
+extern map<string,map<int,string>> pokeballMapAttacker;
+extern map<string,map<int,string>> pokeballMapDefender;
 #define BEGIN_GAME \
     int main(){\
 	Ability dummyAbility; Ability dummyAbility2; \
@@ -38,39 +38,27 @@ extern map<string,map<string,Pokeball>> pokeballMap;
 #define LEARN ; dummyAbility=dummyAbility2
 #define ABILITY_NAME(name) +string(#name)+"@"
 #define GET_HP(Pokemon) Pokemon.getHealthPoints()
-#define GET_TYPE(Pokemon) Pokemon.getPokemonType()
+#define GET_TYPE(temp) temp.getPokemonType()
 #define GET_NAME(Pokemon) Pokemon.getPokemonName()
 #define IS_IN_POKEBALL(Pokemon) Pokemon.isInPokeball()
 #define IF if (
+#define ELSE_IF }else if (
 #define ELSE }else {
 #define AND(...) AndProMax(__VA_ARGS__)
 #define OR(...) OrProMax(__VA_ARGS__)
 #define NOT !
 #define DO ){
-#define HEAL ;healValues[allAbilitiesInOrder[t]]
-#define DAMAGE ;damageValues[allAbilitiesInOrder[t]]
-#define POKEBALL ;pokeballMap[allAbilitiesInOrder[t]]
-#define ATTACKER ["attacker"+to_string(i++)] = 
-#define DEFENDER ["defender"+to_string(v++)] =
+#define HEAL ;heal=true; damage=false;
+#define DAMAGE ;damage=true; heal=false;
+#define NAME name_ability = false ? "lathos" 
+#define ATTACKER attacker,
+#define DEFENDER defender,
 #define ACTION false ? ([]() {})
-#define START []() { t++; i = 1; v = 1;
+#define START Ability_with_actions[name_ability] = []() { t++; i = 1; v = 1; name_ability = allAbilitiesInOrder[allAbilitiesInOrder.size()-1];
 #define FOR ;for(int f=0; f<
-#define POKEBALL ;pokeballMap[allAbilitiesInOrder[t]]
+#define POKEBALL ;
 #define ROUNDS ; f++
-#define END ;/*cout <<"RESULTS for " << allAbilitiesInOrder[t] << endl;\
-        for (i=0; i<100; i++) \
-        { if (damageValues[allAbilitiesInOrder[t]]["attacker"+to_string(i)]!=0) {cout<<damageValues[allAbilitiesInOrder[t]]["attacker"+to_string(i)]; cout << " ";}} \
-        cout<<endl;\
-        for (i=0; i<100; i++) \
-        { if (damageValues[allAbilitiesInOrder[t]]["defender"+to_string(i)]!=0) {cout<<damageValues[allAbilitiesInOrder[t]]["defender"+to_string(i)]; cout << " ";}} \
-        cout<<endl;\
-        for (i=0; i<100; i++) \
-        { if (healValues[allAbilitiesInOrder[t]]["attacker"+to_string(i)]!=0) {cout<<healValues[allAbilitiesInOrder[t]]["attacker"+to_string(i)]; cout << " ";}} \
-        cout<<endl;\
-        for (i=0; i<100; i++) \
-        { if (healValues[allAbilitiesInOrder[t]]["defender"+to_string(i)]!=0) {cout<<healValues[allAbilitiesInOrder[t]]["defender"+to_string(i)]; cout << " ";}} \
-        cout<<endl;*/\
-        }
+#define END ;}
 
 
 template <typename T>
@@ -89,4 +77,6 @@ template<typename T, typename... Args>
 T OrProMax(T arg1, T arg2, Args... args){
 	return arg1 || AndProMax(args...);
 }
+
+
 #endif

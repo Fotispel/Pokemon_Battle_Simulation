@@ -1,4 +1,5 @@
 #include "pokeball.h"
+char _;
 Pokeball Pokeball::operator-(){
 	return *this;
 }
@@ -11,6 +12,6 @@ Pokeball::Pokeball(string value){
 string Pokeball::getName(){
 	return this->value;
 }
-map<string,map<string,Pokeball>> pokeballMap;
+map<string,map<int,string>> pokeballMapAttacker;
+map<string,map<int,string>> pokeballMapDefender;
 Pokeball α("α");
-Pokeball _("_");

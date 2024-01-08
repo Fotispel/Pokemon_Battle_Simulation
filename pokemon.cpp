@@ -1,5 +1,6 @@
 #include "pokemon.h"
 map<string, Pokemon> allPokemons;
+Pokemon Attacker_duel, Defender_duel;
 string tempPokemon;//for the overload at abilities
 Pokemon::Pokemon(Pokemon *copy){ // deep copy constructor
 	name = copy->name;
@@ -37,6 +38,9 @@ bool Pokemon::isInPokeball(){//getter
 }
 void Pokemon::putInPokeball(){//setter
 	this->inPokeball = true;
+}
+void Pokemon::putOutPokeball(){//setter
+	this->inPokeball = false;
 }
 void Pokemon::DamageDefender(Pokemon p, int damage){
 	p.setHealthPoints(p.getHealthPoints() - damage);
