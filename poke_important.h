@@ -37,10 +37,10 @@ extern map<string,map<int,string>> pokeballMapDefender;
 #define DEAR ; tempPokemon=
 #define LEARN ; dummyAbility=dummyAbility2
 #define ABILITY_NAME(name) +string(#name)+"@"
-#define GET_HP(Pokemon) Pokemon.getHealthPoints()
-#define GET_TYPE(temp) temp.getPokemonType()
-#define GET_NAME(Pokemon) Pokemon.getPokemonName()
-#define IS_IN_POKEBALL(Pokemon) Pokemon.isInPokeball()
+#define GET_HP(x) get_hp(x 0)
+#define GET_TYPE(mypokemon) get_type(mypokemon 0)
+#define GET_NAME(mypokemon) get_name(mypokemon 0)
+#define IS_IN_POKEBALL(mypokemon) is_in_pokeball(mypokemon 0)
 #define IF if (
 #define ELSE_IF }else if (
 #define ELSE }else {
@@ -77,6 +77,5 @@ template<typename T, typename... Args>
 T OrProMax(T arg1, T arg2, Args... args){
 	return arg1 || AndProMax(args...);
 }
-
 
 #endif

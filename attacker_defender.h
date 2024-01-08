@@ -15,6 +15,11 @@ public:
         this->is_attacker_defender = is_attacker_defender1;
     }
 
+    string get_is_attacker_defender()
+    {
+        return is_attacker_defender;
+    }
+
     void operator,(int hp_change)
     {
         if (is_attacker_defender == "attacker" && damage == true)
@@ -63,5 +68,47 @@ public:
 attacker_defender attacker("attacker");
 attacker_defender defender("defender");
 attacker_defender pokeball("pokeball");
+
+
+int get_hp(attacker_defender x, int y){
+	if (x.get_is_attacker_defender() == "attacker"){
+		return Attacker_duel.getHealthPoints();
+	}
+	else{
+		return Defender_duel.getHealthPoints();
+	}
+	return -1;
+}
+
+string get_type(attacker_defender x, int y){
+	if (x.get_is_attacker_defender() == "attacker"){
+		return Attacker_duel.getPokemonType();
+	}
+	else if (x.get_is_attacker_defender() == "defender"){
+		return Defender_duel.getPokemonType();
+	}
+	return "lathos";
+}
+
+string get_name(attacker_defender x, int y){
+	if (x.get_is_attacker_defender() == "attacker"){
+		return Attacker_duel.getPokemonName();
+	}
+	else if (x.get_is_attacker_defender() == "defender"){
+		return Defender_duel.getPokemonName();
+	}
+	return "lathos";
+}
+
+bool is_in_pokeball(attacker_defender x, int y){
+	if (x.get_is_attacker_defender() == "attacker"){
+		return Attacker_duel.isInPokeball();
+	}
+	else if (x.get_is_attacker_defender() == "defender"){
+		return Defender_duel.isInPokeball();
+	}
+    return false;
+}
+
 
 #endif
