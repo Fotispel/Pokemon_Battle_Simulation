@@ -32,6 +32,11 @@
             int isDefending = 1;\
             Attacker_duel = player[isAttacking];\
             Defender_duel = player[isDefending];\
+            for (int i = 0; i < int(round_for.size()); i++) {\
+                if (round <= 2 && for_actions[i] != 0) {\
+                    for_actions[i]();\
+                }\
+            }\
             cout << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << endl;\
             cout << "Round " << round << endl;\
             cout << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << endl;\

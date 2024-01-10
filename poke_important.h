@@ -47,7 +47,6 @@ extern map<string,map<int,string>> pokeballMapDefender;
 #define AND(...) AndProMax(__VA_ARGS__)
 #define OR(...) OrProMax(__VA_ARGS__)
 #define NOT !
-#define DO ){
 #define HEAL ;heal=true; damage=false;
 #define DAMAGE ;damage=true; heal=false;
 #define NAME name_ability = false ? "lathos" 
@@ -55,9 +54,10 @@ extern map<string,map<int,string>> pokeballMapDefender;
 #define DEFENDER defender,
 #define ACTION false ? ([]() {})
 #define START Ability_with_actions[name_ability] = []() { t++; i = 1; v = 1; name_ability = allAbilitiesInOrder[allAbilitiesInOrder.size()-1];
-#define FOR ;for(int f=0; f<
+#define FOR ;round_for.push_back(
+#define ROUNDS ); for_actions[f] = [](
+#define DO ){
 #define POKEBALL ;
-#define ROUNDS ; f++
 #define END ;}
 
 

@@ -34,11 +34,14 @@ POKEMON{
 
 CREATE ABILITY {
 NAME: "Blaze",
-ACTION : START
-    IF GET_HP(ATTACKER) < 50 DO
-        DAMAGE ATTACKER 20
+ACTION :  START
+        // t++; i = 1; v = 1; name_ability = allAbilitiesInOrder[allAbilitiesInOrder.size()-1];
+        // IF GET_HP(ATTACKER) < 50 DO
+        //     DAMAGE ATTACKER 20
+        // END
+
+        FOR 2 ROUNDS DO DAMAGE ATTACKER 10 END
     END
-END
 }
 
 
