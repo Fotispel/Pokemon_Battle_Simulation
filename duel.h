@@ -28,13 +28,13 @@
             if (player[0].isInPokeball() && player[1].isInPokeball()) {\
                 break;\
             }\
-            int isAttacking = 0;\
-            int isDefending = 1;\
+            isAttacking = 0;\
+            isDefending = 1;\
             Attacker_duel = player[isAttacking];\
             Defender_duel = player[isDefending];\
             for (int i = 0; i < int(round_for.size()); i++) {\
-                if (round <= 2 && for_actions[i] != 0) {\
-                    for_actions[i]();\
+                if (round <= round_for[i] && for_actions[i]["player1"]) {\
+                    for_actions[i]["player1"]();\
                 }\
             }\
             cout << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << endl;\
@@ -69,6 +69,12 @@
             Defender_duel = player[isDefending];\
             if (player[isAttacking].isInPokeball() && player[isDefending].isInPokeball()) {\
                 break;\
+            }\
+            for (int r = 0; r < int(round_for.size()); r++) {\
+                printf ("round = %d, round_for[%d] = %d\n", round, r, round_for[r]);\
+                if (round <= round_for[r] && for_actions[r]["player2"]) {\
+                    for_actions[r]["player2"]();\
+                }\
             }\
             if (!player[isAttacking].isInPokeball()) {\
                 cout << player[0].getPokemonName() << "(Player" << isAttacking + 1 <<") select ability: " << endl;\

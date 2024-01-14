@@ -3,9 +3,10 @@
 #include "poke_important.h"
 extern vector <string> allAbilitiesInOrder;
 extern map<string, function<void()>> Ability_with_actions;
-extern map<int, function<void()>> for_actions;
+extern map<int,map<string, function<void()>>> for_actions;
 extern string name_ability;
-extern bool heal, damage;
+extern bool heal, damage, for_state, after_state;
+extern  int isAttacking, isDefending;
 extern int f;
 extern vector<int> round_for;
 

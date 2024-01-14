@@ -13,9 +13,15 @@ CREATE POKEMON{
 }
 
 CREATE POKEMON{
+    NAME : "Blastoise",
+    TYPE : "Water",
+    HP : 100
+}
+
+CREATE POKEMON{
     NAME : "Pikachu",
     TYPE : "Electric",
-    HP : 90
+    HP : 100
 }
 
 CREATE POKEMONS [
@@ -35,14 +41,30 @@ POKEMON{
 CREATE ABILITY {
 NAME: "Blaze",
 ACTION :  START
-        // t++; i = 1; v = 1; name_ability = allAbilitiesInOrder[allAbilitiesInOrder.size()-1];
-        // IF GET_HP(ATTACKER) < 50 DO
-        //     DAMAGE ATTACKER 20
-        // END
-
-        FOR 2 ROUNDS DO DAMAGE ATTACKER 10 END
+        IF GET_HP(ATTACKER) > 50 DO
+            DAMAGE ATTACKER 20
+        END
     END
 }
+
+CREATE ABILITY {
+NAME: "Electric_shock",
+ACTION :  START
+        IF AND(GET_HP(ATTACKER) > 50 , GET_TYPE(ATTACKER) == "Electric") DO
+            DAMAGE DEFENDER 20
+        END
+    END
+}
+
+CREATE ABILITY {
+NAME: "Water_fight",
+ACTION :  START
+        IF GET_TYPE(ATTACKER) == "Water" DO
+            DAMAGE DEFENDER 20
+        END
+    END
+}
+
 
 
 
@@ -73,6 +95,12 @@ DAMAGE ATTACKER 20
 END
 }
 
+CREATE ABILITY {
+NAME: "Nothing",
+ACTION : START
+END
+}
+
 
 CREATE ABILITY {
 NAME: "Slash",
@@ -88,13 +116,17 @@ ABILITY_NAME(Bite)
 ABILITY_NAME(Solar_Power)
 ABILITY_NAME(Slash)
 ABILITY_NAME(Blaze)
+ABILITY_NAME(Electric_shock)
+ABILITY_NAME(Nothing)
 ];
 DEAR "Pikachu" LEARN [
 ABILITY_NAME(Bite)
 ABILITY_NAME(Slash)
 ABILITY_NAME(Electric_Shock)
 ABILITY_NAME(Solar_Power)
+ABILITY_NAME(Electric_shock)
 ABILITY_NAME(Blaze)
+ABILITY_NAME(Nothing)
 ];
 
 DEAR "Ho Oh" LEARN [
