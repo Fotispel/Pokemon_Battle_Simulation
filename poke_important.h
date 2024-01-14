@@ -54,13 +54,8 @@ extern map<string,map<int,string>> pokeballMapDefender;
 #define DEFENDER defender,
 #define ACTION false ? ([]() {})
 #define START Ability_with_actions[name_ability] = []() { t++; i = 1; v = 1; name_ability = allAbilitiesInOrder[allAbilitiesInOrder.size()-1];
-#define FOR ;for_state=true; after_state=false; round_for.push_back(
-#define ROUNDS );	string pl;\
-					if (for_state && isAttacking==0)\
-						pl = "player1";\
-					else if (for_state && isAttacking==1)\
-						pl = "player2";\
-					for_actions[f][pl] = [](
+#define FOR ;round_for.push_back(
+#define ROUNDS ); for_actions[f] = [](
 #define DO ){
 #define POKEBALL ;
 #define END ;}

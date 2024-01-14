@@ -3,11 +3,10 @@
 #include "pokemon.h"
 vector<string> allAbilitiesInOrder;
 map<string, function<void()>> Ability_with_actions;
-map<int,map<string, function<void()>>> for_actions;
+map<int, function<void()>> for_actions;
 string name_ability;
 map<string, Ability> allAbilities;
-bool heal, damage, for_state, after_state;
-int isAttacking, isDefending;
+bool heal, damage;
 int t = 0, i, v, f=0;
 vector<int> round_for;
 Ability::Ability(Ability *copy)
