@@ -1,2 +1,1 @@
-# pokemon_simulation
-This is repo for CS - 352 project
+Μεταγλωττισμένο σε c++11. Ολοκληρώθηκε με επιτυχία όλο το πρότζεκτ εκτός από τα types των επιθέσεων και ένα κομμάτι από τα for/after στο abilities. To game.cpp είναι για τεστ.
