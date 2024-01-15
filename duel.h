@@ -24,14 +24,13 @@
         Pokemon player[2];\
         player[0] = Pokemon(allPokemons[pokemon1]);\
         player[1] = Pokemon(allPokemons[pokemon2]);\
+        Attacker_duel = player[0];\
+        Defender_duel = player[1];\
         while (player[0].getHealthPoints() > 0 && player[1].getHealthPoints() > 0) {\
-            if (player[0].isInPokeball() && player[1].isInPokeball()) {\
-                break;\
-            }\
             int isAttacking = 0;\
             int isDefending = 1;\
-            Attacker_duel = player[isAttacking];\
-            Defender_duel = player[isDefending];\
+            player[isAttacking] = Attacker_duel;\
+            player[isDefending] = Defender_duel;\
             for (int i = 0; i < int(round_for.size()); i++) {\
                 if (round <= 2 && for_actions[i] != 0) {\
                     for_actions[i]();\
@@ -52,11 +51,11 @@
                 player[isAttacking] = Attacker_duel;\
                 player[isDefending] = Defender_duel;\
                 cout << endl << "#############################" << endl;\
-                print_pokemon_info(player[0]);\
+                print_pokemon_info(Attacker_duel);\
                 cout << "#############################" << endl;\
                 cout << endl << endl << endl;\
                 cout << "#############################" << endl;\
-                print_pokemon_info(player[1]);\
+                print_pokemon_info(Defender_duel);\
                 cout << "#############################" << endl << endl << endl;\
             }\
             else {\
@@ -65,13 +64,13 @@
             \
             isAttacking = 1;\
             isDefending = 0;\
-            Attacker_duel = player[isAttacking];\
-            Defender_duel = player[isDefending];\
-            if (player[isAttacking].isInPokeball() && player[isDefending].isInPokeball()) {\
+            swap(Attacker_duel, Defender_duel);\
+            player[isAttacking] = Attacker_duel;\
+            player[isDefending] = Defender_duel;\
+            if (player[isAttacking].getHealthPoints() <= 0 || player[isDefending].getHealthPoints() <= 0)\
                 break;\
-            }\
             if (!player[isAttacking].isInPokeball()) {\
-                cout << player[0].getPokemonName() << "(Player" << isAttacking + 1 <<") select ability: " << endl;\
+                cout << player[isAttacking].getPokemonName() << "(Player" << isAttacking + 1 <<") select ability: " << endl;\
                 cout << "------------------------------------------" << endl;\
                 print_PokemonAbilities(player[isAttacking].getPokemonName());\
                 cout << "------------------------------------------" << endl;\
@@ -82,17 +81,18 @@
                 player[isAttacking] = Attacker_duel;\
                 player[isDefending] = Defender_duel;\
                 cout << endl << "#############################" << endl;\
-                print_pokemon_info(player[0]);\
+                print_pokemon_info(Defender_duel);\
                 cout << "#############################" << endl;\
                 cout << endl << endl << endl;\
                 cout << "#############################" << endl;\
-                print_pokemon_info(player[1]);\
+                print_pokemon_info(Attacker_duel);\
                 cout << "#############################" << endl << endl << endl;\
             }\
             else {\
                 cout << player[isAttacking].getPokemonName() << "(Player" << isAttacking + 1 << ") has not a pokemon out of pokeball so he can't cast an ability." << endl;\
             }\
             \
+            swap(Attacker_duel, Defender_duel);\
             round++;\
         }\
         cout << endl << "------------------------------------------" << endl;\
@@ -102,6 +102,12 @@
 
 void do_ability_actions(string abilityName) {
     Ability_with_actions[abilityName]();
+}
+
+void swap(Pokemon &a, Pokemon &b) {
+    Pokemon temp = a;
+    a = b;
+    b = temp;
 }
 
 

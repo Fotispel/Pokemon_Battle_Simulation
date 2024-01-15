@@ -9,7 +9,7 @@ BEGIN_GAME
 CREATE POKEMON{
     NAME : "Charizard",
     TYPE : "Fire",
-    HP : 100
+    HP : 110
 }
 
 CREATE POKEMON{
@@ -50,7 +50,7 @@ ACTION :  START
 CREATE ABILITY {
 NAME: "Electric_shock",
 ACTION :  START
-        IF AND(GET_HP(ATTACKER) > 50 , GET_TYPE(ATTACKER) == "Electric") DO
+        IF OR(AND(GET_HP(ATTACKER) > 50 , GET_TYPE(ATTACKER) == "Electric"),AND(GET_HP(DEFENDER) > 50 , GET_TYPE(ATTACKER) == "Fire")) DO
             DAMAGE DEFENDER 20
         END
     END
@@ -90,7 +90,6 @@ CREATE ABILITY {
 NAME: "Fire",
 ACTION : START
 POKEBALL ATTACKER _
-POKEBALL DEFENDER _
 DAMAGE ATTACKER 20
 END
 }
@@ -118,11 +117,11 @@ ABILITY_NAME(Slash)
 ABILITY_NAME(Blaze)
 ABILITY_NAME(Electric_shock)
 ABILITY_NAME(Nothing)
+ABILITY_NAME(Fire)
 ];
 DEAR "Pikachu" LEARN [
 ABILITY_NAME(Bite)
 ABILITY_NAME(Slash)
-ABILITY_NAME(Electric_Shock)
 ABILITY_NAME(Solar_Power)
 ABILITY_NAME(Electric_shock)
 ABILITY_NAME(Blaze)
@@ -133,6 +132,7 @@ DEAR "Ho Oh" LEARN [
 ABILITY_NAME(Bite)
 ABILITY_NAME(Solar_Power)
 ABILITY_NAME(Blaze)
+ABILITY_NAME(Water_fight)
 ];
 
 DEAR "Bulbasaur" LEARN [

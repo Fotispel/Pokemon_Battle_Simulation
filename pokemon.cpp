@@ -44,6 +44,7 @@ void Pokemon::putOutPokeball(){//setter
 }
 void Pokemon::DamageDefender(Pokemon p, int damage){
 	p.setHealthPoints(p.getHealthPoints() - damage);
+	Defender_duel.setHealthPoints(Defender_duel.getHealthPoints() - damage);
 }
 string Pokemon::getPokemonType() const{
 	return this->type;

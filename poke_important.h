@@ -44,8 +44,6 @@ extern map<string,map<int,string>> pokeballMapDefender;
 #define IF if (
 #define ELSE_IF }else if (
 #define ELSE }else {
-#define AND(...) AndProMax(__VA_ARGS__)
-#define OR(...) OrProMax(__VA_ARGS__)
 #define NOT !
 #define HEAL ;heal=true; damage=false;
 #define DAMAGE ;damage=true; heal=false;
@@ -61,21 +59,24 @@ extern map<string,map<int,string>> pokeballMapDefender;
 #define END ;}
 
 
-template <typename T>
-T AndProMax(T arg1, T arg2){
-	return arg1 && arg2;
+template<typename... Args>
+bool AND() {
+    return true;
 }
+
 template<typename T, typename... Args>
-T AndProMax(T arg1, T arg2, Args... args){
-	return arg1 && AndProMax(args...);
+bool AND(T first, Args... args) {
+    return static_cast<bool>(first) && AND(args...);
 }
-template <typename T>
-T OrProMax(T arg1, T arg2){
-	return arg1 || arg2;
+
+template<typename... Args>
+bool OR() {
+	return false;
 }
+
 template<typename T, typename... Args>
-T OrProMax(T arg1, T arg2, Args... args){
-	return arg1 || AndProMax(args...);
+bool OR(T first, Args... args) {
+	return static_cast<bool>(first) || OR(args...);
 }
 
 #endif
