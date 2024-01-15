@@ -25,7 +25,12 @@ void Pokemon::putDefenderInPokeball(Pokemon p){
 	p.putInPokeball();
 }
 void Pokemon::DamageAttacker(int damage){
-	this->health_points -= damage;
+	if (this->health_points - damage <= 0){
+		this->health_points = 0;
+	}
+	else
+		this->health_points -= damage;
+
 }
 void Pokemon::HealAttacker(int heal){
 	this->health_points += heal;
@@ -44,7 +49,11 @@ void Pokemon::putOutPokeball(){//setter
 }
 void Pokemon::DamageDefender(Pokemon p, int damage){
 	p.setHealthPoints(p.getHealthPoints() - damage);
-	Defender_duel.setHealthPoints(Defender_duel.getHealthPoints() - damage);
+	if (Defender_duel.getHealthPoints() - damage <= 0){
+		Defender_duel.setHealthPoints(0);
+	}
+	else
+		Defender_duel.setHealthPoints(Defender_duel.getHealthPoints() - damage);
 }
 string Pokemon::getPokemonType() const{
 	return this->type;
