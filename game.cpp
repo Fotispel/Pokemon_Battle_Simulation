@@ -48,6 +48,13 @@ ACTION :  START
 }
 
 CREATE ABILITY {
+NAME: "Heal",
+ACTION :  START
+            HEAL ATTACKER 20
+END
+}
+
+CREATE ABILITY {
 NAME: "Electric_shock",
 ACTION :  START
         IF OR(AND(GET_HP(ATTACKER) > 50 , GET_TYPE(ATTACKER) == "Electric"),AND(GET_HP(DEFENDER) > 50 , GET_TYPE(ATTACKER) == "Fire")) DO
@@ -126,6 +133,7 @@ ABILITY_NAME(Solar_Power)
 ABILITY_NAME(Electric_shock)
 ABILITY_NAME(Blaze)
 ABILITY_NAME(Nothing)
+ABILITY_NAME(Heal)
 ];
 
 DEAR "Ho Oh" LEARN [
