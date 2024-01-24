@@ -11,19 +11,16 @@ CREATE POKEMON{
     TYPE : "Fire",
     HP : 110
 }
-
 CREATE POKEMON{
     NAME : "Blastoise",
     TYPE : "Water",
     HP : 100
 }
-
 CREATE POKEMON{
     NAME : "Pikachu",
     TYPE : "Electric",
     HP : 100
 }
-
 CREATE POKEMONS [
 POKEMON{
     NAME: "Ho Oh",
@@ -36,8 +33,6 @@ POKEMON{
     HP: 85
 }
 ]
-;
-
 CREATE ABILITY {
 NAME: "Blaze",
 ACTION :  START
@@ -46,14 +41,12 @@ ACTION :  START
         END
     END
 }
-
 CREATE ABILITY {
 NAME: "Heal",
 ACTION :  START
             HEAL ATTACKER 20
 END
 }
-
 CREATE ABILITY {
 NAME: "Electric_shock",
 ACTION :  START
@@ -62,7 +55,6 @@ ACTION :  START
         END
     END
 }
-
 CREATE ABILITY {
 NAME: "Water_fight",
 ACTION :  START
@@ -71,10 +63,6 @@ ACTION :  START
         END
     END
 }
-
-
-
-
 CREATE ABILITIES [
     ABILITY{
     NAME: "Bite",
@@ -90,9 +78,6 @@ CREATE ABILITIES [
     END
     }
 ]
-;
-
-
 CREATE ABILITY {
 NAME: "Fire",
 ACTION : START
@@ -106,17 +91,12 @@ NAME: "Nothing",
 ACTION : START
 END
 }
-
-
 CREATE ABILITY {
 NAME: "Slash",
 ACTION: START
     DAMAGE ATTACKER 22
 END
 }
-;
-
-
 DEAR "Charizard" LEARN [
 ABILITY_NAME(Bite)
 ABILITY_NAME(Solar_Power)
@@ -125,7 +105,7 @@ ABILITY_NAME(Blaze)
 ABILITY_NAME(Electric_shock)
 ABILITY_NAME(Nothing)
 ABILITY_NAME(Fire)
-];
+]
 DEAR "Pikachu" LEARN [
 ABILITY_NAME(Bite)
 ABILITY_NAME(Slash)
@@ -134,20 +114,16 @@ ABILITY_NAME(Electric_shock)
 ABILITY_NAME(Blaze)
 ABILITY_NAME(Nothing)
 ABILITY_NAME(Heal)
-];
-
+]
 DEAR "Ho Oh" LEARN [
 ABILITY_NAME(Bite)
 ABILITY_NAME(Solar_Power)
 ABILITY_NAME(Blaze)
 ABILITY_NAME(Water_fight)
-];
-
+]
 DEAR "Bulbasaur" LEARN [
 ABILITY_NAME(Bite)
 ABILITY_NAME(Solar_Power)
-];
-
-
+]
 DUEL
 END_GAME

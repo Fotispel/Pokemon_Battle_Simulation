@@ -4,7 +4,7 @@
 #include "pokeball.h"
 
 
-#define DUEL\
+#define DUEL ;\
         int round = 1;\
         string pokemon1, pokemon2, ability;\
         cout << "--------------------------------POKEMON THE GAME--------------------------------" << endl;\
